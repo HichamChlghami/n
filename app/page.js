@@ -63,9 +63,7 @@ function Page() {
     // Fetch new data if not in local storage or if data is outdated
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get' , {next:{
-          revalidate,
-        }});
+        const response = await axios.get('http://localhost:5000/get' );
         console.log('Received Data featured:', response.data);
         const shuffledData = shuffleArray(response.data.slice());
         setData(shuffledData);
